@@ -15,29 +15,29 @@ var (
 	version string
 
 	listenAddrFlag = kingpin.Flag("listen.addr", "listen address for http server").
-		Envar("PLEXHOOKS_LISTEN_ADDR").
-		Default("0.0.0.0:8080").
-		TCP()
+			Envar("PLEXHOOKS_LISTEN_ADDR").
+			Default("0.0.0.0:8080").
+			TCP()
 
 	logLevelFlag = kingpin.Flag("log.level", "log level").
-		Envar("PLEXHOOKS_LOG_LEVEL").
-		Default(logrus.InfoLevel.String()).
-		Enum(logrus.DebugLevel.String(), logrus.InfoLevel.String(), logrus.ErrorLevel.String())
+			Envar("PLEXHOOKS_LOG_LEVEL").
+			Default(logrus.InfoLevel.String()).
+			Enum(logrus.DebugLevel.String(), logrus.InfoLevel.String(), logrus.ErrorLevel.String())
 
 	logFormatterFlag = kingpin.Flag("log.formatter", "log formatter").
-		Envar("PLEXHOOKS_LOG_FORMATTER").
-		Default("text").
-		Enum("text", "json")
+				Envar("PLEXHOOKS_LOG_FORMATTER").
+				Default("text").
+				Enum("text", "json")
 
 	grafanaURLFlag = kingpin.Flag("grafana.url", "grafana url (eg: http://grafana.local)").
-		Envar("PLEXHOOKS_GRAFANA_URL").
-		Required().
-		String()
+			Envar("PLEXHOOKS_GRAFANA_URL").
+			Required().
+			String()
 
 	grafanaTokenFlag = kingpin.Flag("grafana.token", "grafana api token").
-		Envar("PLEXHOOKS_GRAFANA_TOKEN").
-		Required().
-		String()
+				Envar("PLEXHOOKS_GRAFANA_TOKEN").
+				Required().
+				String()
 )
 
 func main() {
