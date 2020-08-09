@@ -2,9 +2,7 @@
 
 VERSION = $(shell git rev-parse --verify HEAD)
 
-build: binary docker
-
-binary:
+build:
 	go build -ldflags "-X main.version=$(VERSION)" cmd/myplexhooks.go
 
 docker:
