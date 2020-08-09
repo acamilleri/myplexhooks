@@ -4,7 +4,7 @@ ARG version
 
 COPY ./ /go/myplexhooks
 WORKDIR /go/myplexhooks
-RUN go build -ldflags "-X main.version=$version" cmd/filesd.go -O myplexhooks
+RUN go build -ldflags "-X main.version=$version" cmd/myplexhooks.go
 
 FROM busybox:glibc
 
